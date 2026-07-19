@@ -1,7 +1,9 @@
+@file:Suppress("UnstableApiUsage")
+
 package com.github.skyrylyuk.toolbarcursorposition
 
 import com.github.skyrylyuk.toolbarcursorposition.ToolBarCursorMessageBundle.message
-import com.intellij.openapi.actionSystem.ActionManager.getInstance
+import com.intellij.ide.util.EditorGotoLineNumberDialog
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -34,7 +36,10 @@ class PositionAction : AnAction() {
     }
 
     override fun actionPerformed(event: AnActionEvent) {
-        getInstance().getAction("GotoLine")?.actionPerformed(event)
+        EditorGotoLineNumberDialog(
+            event.getData(CommonDataKeys.PROJECT),
+            event.getData(CommonDataKeys.EDITOR)
+        ).show()
     }
 
     override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
