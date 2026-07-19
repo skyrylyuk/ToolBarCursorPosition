@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 package com.github.skyrylyuk.toolbarcursorposition
 
 import com.github.skyrylyuk.toolbarcursorposition.ToolBarCursorMessageBundle.message

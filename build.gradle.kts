@@ -1,4 +1,5 @@
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.intellij.platform.gradle.tasks.VerifyPluginTask
 
 plugins {
     id("org.jetbrains.kotlin.jvm")
@@ -14,8 +15,11 @@ dependencies {
     intellijPlatform {
         intellijIdea("2025.3.5")
         testFramework(TestFrameworkType.Platform)
+    }
+}
 
-        // Add plugin dependencies for compilation here, for example:
-        // bundledPlugin("com.intellij.java")
+intellijPlatform {
+    pluginVerification {
+        failureLevel = listOf(VerifyPluginTask.FailureLevel.COMPATIBILITY_PROBLEMS)
     }
 }
