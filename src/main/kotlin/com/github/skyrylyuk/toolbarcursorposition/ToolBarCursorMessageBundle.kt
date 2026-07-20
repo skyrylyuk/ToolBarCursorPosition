@@ -1,3 +1,5 @@
+@file:Suppress("Unused")
+
 package com.github.skyrylyuk.toolbarcursorposition
 
 import com.intellij.DynamicBundle
